@@ -22,15 +22,17 @@ namespace ConnectnowWeb.Controllers
             return View();
         }
 
-        public ActionResult GetHash(string id)
+        [Route("Crypto/Gethash/{data}")]
+        public ActionResult GetHash(string data)
         {
-            return Content(ComputeHash(id));
+            return Content(ComputeHash(data));
         }
 
-        public ActionResult VerifyHash(string id)
+        [Route("Crypto/Verifydata/{data}")]
+        public ActionResult VerifyHash(string data)
         {
             string hash = @"+wExY4w35i2eAOrNeFSQdJ9g3+QH4RMF2mR3LL0jS9UfwHlN7bgfcEJT/qBu+bodvCSmCc6cHW2j5xqSXVdzPGz+SkrYGokfbuY=";
-            return Content(VerifyHash(id, hash).ToString());
+            return Content(VerifyHash(data, hash).ToString());
         }
 
         public static string ComputeHash(string plainText, byte[] saltBytes = null)
