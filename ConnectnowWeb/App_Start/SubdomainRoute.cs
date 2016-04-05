@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-
-namespace ConnectnowWeb
+﻿namespace ConnectnowWeb
 {
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+
     public class SubdomainRoute : Route
     {
-        public SubdomainRoute(string url) : base(url, new MvcRouteHandler()) { }
+        public SubdomainRoute(string url)
+            : base(url, new MvcRouteHandler())
+        {
+        }
 
         public override RouteData GetRouteData(HttpContextBase httpContext)
         {
@@ -21,8 +22,9 @@ namespace ConnectnowWeb
             {
                 subdomain = string.Empty;
             }
+
             routeData.Values.Add("subdomain", subdomain);
             return routeData;
-        }        
+        }
     }
 }

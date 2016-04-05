@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Text;
-using System.Security.Cryptography;
-
-namespace ConnectnowWeb.Controllers
+﻿namespace ConnectnowWeb.Controllers
 {
+    using System;
+    using System.Security.Cryptography;
+    using System.Text;
+    using System.Web.Mvc;
+
     public class HomeController : Controller
     {
         public ActionResult Index(string subdomain)
@@ -35,7 +32,7 @@ namespace ConnectnowWeb.Controllers
             return Content(VerifyHash(data, hash).ToString());
         }
 
-        public static string ComputeHash(string plainText, byte[] saltBytes = null)
+        private static string ComputeHash(string plainText, byte[] saltBytes = null)
         {
             if (saltBytes == null)
             {
@@ -53,6 +50,7 @@ namespace ConnectnowWeb.Controllers
             {
                 plainTextWithSaltBytes[i] = plainTextBytes[i];
             }
+
             for (int i = 0; i < saltBytes.Length; i++)
             {
                 plainTextWithSaltBytes[plainTextBytes.Length + i] = saltBytes[i];
@@ -67,6 +65,7 @@ namespace ConnectnowWeb.Controllers
             {
                 hashWithSaltBytes[i] = hashBytes[i];
             }
+
             for (int i = 0; i < saltBytes.Length; i++)
             {
                 hashWithSaltBytes[hashBytes.Length + i] = saltBytes[i];
@@ -96,7 +95,7 @@ namespace ConnectnowWeb.Controllers
 
             string expectedHashString = ComputeHash(plainText, saltBytes);
 
-            return (hashValue == expectedHashString);
+            return hashValue == expectedHashString;
         }
     }
 }
