@@ -5,16 +5,18 @@
     using System.Text;
     using System.Web.Mvc;
 
+    [SubdomainRoute("{action=Index}", "www")]
     public class HomeController : Controller
     {
-        public ActionResult Index(string subdomain)
+        public ActionResult Index()
         {
             return View();
         }
 
+        [Route("about")]
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "default domain page.";
 
             return View();
         }

@@ -147,7 +147,10 @@
     <Compile Include="App_Start\SubdomainRoute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="App_Start\SubdomainRouteAttribute.cs" />
+    <Compile Include="App_Start\SubdomainRouteConstraint.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RNWController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +193,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\RNW\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
