@@ -17,7 +17,7 @@
             var routeData = base.GetRouteData(httpContext);
 
             string subdomain = httpContext.Request.Url.Host.Split('.').First().ToLower();
-            string[] whitelist = { "randw", "harcourts" };
+            string[] whitelist = { "randw", "harcourts", "www" };
             if (!whitelist.Contains(subdomain))
             {
                 subdomain = string.Empty;
